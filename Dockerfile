@@ -19,7 +19,7 @@ RUN pip3 install --upgrade setuptools
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY ./App /app/App
 
 EXPOSE 5000
 
