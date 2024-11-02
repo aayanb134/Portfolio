@@ -10,15 +10,15 @@ flask-portfolio/
 │ ├── static/ # CSS, JS, images and other static files
 │ ├── templates/ # HTML files
 │ ├── database.csv # csv file to store data
-│ ├── requirements.txt # Python dependencies
 │ └── server.py # Flask app entry pointtemplates/ # HTML files
 ├── IaC/
-│ ├──
-│ ├──
+│ ├── main.tf
+│ ├── ecr.tf
 │ └──
 ├── docker-compose.yml # Docker Compose file (coming soon)
 ├── .gitignore # Ignore unnecessary files
 ├── Dockerfile # Dockerfile for containerizing Flask app
+├── requirements.txt # Python dependencies
 └── README.md # Project documentation
 ```
 
