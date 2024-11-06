@@ -1,5 +1,5 @@
 # Stage 1: Build dependencies
-FROM python:3.10.12-slim-bullseye AS builder
+FROM --platform=arm64 python:3.10.12-slim-bullseye AS builder
 
 WORKDIR /app
 
@@ -21,7 +21,7 @@ RUN pip3 install --upgrade setuptools
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Stage 2: Create the runtime image
-FROM python:3.10.12-slim-bullseye
+FROM --platform=arm64 python:3.10.12-slim-bullseye
 
 WORKDIR /app
 
