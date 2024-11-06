@@ -18,15 +18,16 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements and install dependencies
 COPY requirements.txt .
 RUN pip3 install --upgrade setuptools
-RUN pip3 install --no-cache-dir -r requirements.txt -t /app/dependencies
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Stage 2: Create the runtime image
 FROM python:3.10.12-slim-bullseye
 
 WORKDIR /app
 
-# Copy only the dependencies from the builder stage
-COPY --from=builder /app/dependencies /usr/local/lib/python3.10/site-packages
+# Copy Python packages from builder stage
+COPY --from=builder /usr/local/lib/python3.10 /usr/local/lib/python3.10
+COPY --from=builder /usr/local/bin /usr/local/bin
 
 # Copy application code
 COPY ./App /app/App

@@ -19,6 +19,10 @@ resource "aws_ecs_task_definition" "service" {
     }]
   }])
 
+  runtime_platform {
+    operating_system_family = "LINUX"
+    cpu_architecture        = "ARM64"
+  }
   depends_on = [aws_iam_role.ecs_execution_role]
 }
 
