@@ -2,7 +2,7 @@ resource "aws_lb" "main" {
   name               = "portfolio-alb"
   internal           = false
   load_balancer_type = "application"
-  subnets            = aws_subnet.public.*.id
+  subnets            = [for subnet in aws_subnet.public : subnet.id]
   security_groups    = [aws_security_group.alb.id]
 }
 

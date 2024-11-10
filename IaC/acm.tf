@@ -23,7 +23,7 @@ module "acm" {
   version = "5.1.1"
 
   domain_name       = "aayan-resume.com"
-  zone_id           = "Z08142412D2LIYVLOF838"
+  zone_id           = aws_route53_zone.primary.id
   validation_method = "DNS"
 
   wait_for_validation = true
@@ -31,6 +31,7 @@ module "acm" {
   tags = {
     Name = "aayan-resume.com"
   }
+  depends_on = [aws_route53_zone.primary]
 }
 
 output "acm_certificate_arn" {
